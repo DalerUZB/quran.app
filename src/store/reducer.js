@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchSurah, fetchSuraname, fetchTaqvim } from "./action";
+import {
+  fetchSuraAudio,
+  fetchSurah,
+  fetchSuraname,
+  fetchTaqvim,
+  fetchTranslate,
+} from "./action";
 
 const state = {
+  loading: false,
   dark: "dark",
   light: "light",
   quranNameList: [],
@@ -15,13 +22,13 @@ const state = {
     hufton: null,
   },
   surahName: [],
+  surahAudio: [],
+  surahTranslation: [],
 };
 
 export const quranAPP = createSlice({
   name: "quran",
-
   initialState: state,
-
   reducers: {
     setDarkTheme(state) {
       state.glovalTheme = true;
@@ -30,7 +37,6 @@ export const quranAPP = createSlice({
       state.glovalTheme = false;
     },
   },
-
   extraReducers: (builder) => {
     builder.addCase(fetchSurah.fulfilled, (state, action) => {
       state.quranNameList = action.payload;
@@ -44,8 +50,21 @@ export const quranAPP = createSlice({
       state.taqvimTimeNamaz.shom_iftor = action.payload.times.shom_iftor;
       state.taqvimTimeNamaz.hufton = action.payload.times.hufton;
     });
+    builder.addCase(fetchSuraname.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchSuraname.rejected, (state, action) => {
+      state.loading = false;
+    });
     builder.addCase(fetchSuraname.fulfilled, (state, action) => {
       state.surahName = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchSuraAudio.fulfilled, (state, action) => {
+      state.surahAudio = action.payload;
+    });
+    builder.addCase(fetchTranslate.fulfilled, (state, { payload }) => {
+      state.surahTranslation = payload;
     });
   },
 });

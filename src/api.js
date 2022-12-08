@@ -17,6 +17,26 @@ class Api {
       console.log(error);
     }
   }
+  async fetchSurahAudio(id) {
+    try {
+      const result = await axios.get(
+        `http://api.alquran.cloud/v1/surah/${id}/ar.alafasy`
+      );
+      return result.data.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async fetchSurahTranslation(id) {
+    try {
+      const result = await axios.get(
+        `https://api.alquran.cloud/v1/surah/${id}/uz.sodik`
+      );
+      return result.data.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async fetchTaqvimNamaz(body) {
     try {
       const result = await axios.get(

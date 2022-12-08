@@ -11,8 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fff;
-  color: #000;
+  background-color: hsl(0, 7%, 92%);
+  color: rgb(0, 0, 0);
   transition: 0.3s all cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
@@ -22,8 +22,8 @@ code {
 }
 
 .dark {
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(4, 0, 0);
+  color: rgb(200, 189, 189);
 }
 
 .sectionTimes {

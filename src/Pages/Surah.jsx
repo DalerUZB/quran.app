@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { fetchSurah } from "../store/action";
 import SurahApp from "../Components/SurahComponent";
-import { useParams } from "react-router-dom";
 
 const Surah = () => {
   const dispatch = useDispatch();
@@ -16,7 +15,6 @@ const Surah = () => {
     <Wrapper className="backgroundSurah">
       <div className="containerQuranList">
         <h1 className="bismillah"> بِسْمِ ٱللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h1>
-        <span className="byJuz">Read the Quran by Juz</span>
         <hr />
         <div className="containerQuranScrollSurah">
           {quranNameList.map((item) => (
@@ -41,14 +39,14 @@ const Wrapper = styled.div`
     background-color: ${(props) => props.theme.backgrounColor};
     color: ${(props) => props.theme.color};
     transition: ${(props) => props.theme.transition};
+    padding: 0px 10px;
     .bismillah {
-      text-align: center;
+      text-align: right;
       font-family: "Kitab";
-      margin-bottom: 23px;
-      font-size: 40px;
-      font-weight: 300;
+      padding-bottom: 45px;
+      font-size: 33px;
+      font-weight: 500;
       color: #666666;
-      margin-bottom: 23px;
     }
     .byJuz {
       font-family: inherit;

@@ -13,12 +13,12 @@ import Tasbeh from "./Pages/Tasbeh";
 
 function App() {
   const darkTheme = {
-    backgrounColor: "#000",
-    color: "#fff",
-    transition: "0.4s",
+    backgrounColor: "rgb(4, 0, 0)",
+    color: "rgb(200, 189, 189)",
+    transition: "0.3s",
   };
   const ligthTheme = {
-    backgrounColor: "#fff",
+    backgrounColor: "hsl(0, 7%, 92%)",
     color: "#000",
     transition: "0.4s",
   };
